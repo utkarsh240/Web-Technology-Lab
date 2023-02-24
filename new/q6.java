@@ -25,7 +25,7 @@ class Shape3D extends Shape2D
         a = l*b*h;
     }
     void calculate(){
-        cal = a * 60;
+        cal = (2*(l * b) + 2*(b * h) + 2*(h * l) )* 60;
         System.out.println("Cost of Plastic for 3D is Rs " + cal);
     }
 }
