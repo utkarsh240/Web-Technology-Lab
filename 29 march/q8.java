@@ -1,5 +1,4 @@
-/*Write a Java program to illustrate try, catch, and finally 
- block. */
+
 
 import java.io.*;
 import java.util.*;
