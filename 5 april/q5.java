@@ -1,21 +1,25 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.*;
 
 public class q5 {
     public static void main(String[] args) throws IOException {
-        FileReader fr = new FileReader("file1.txt");
-        FileWriter fw = new FileWriter("file2.txt");
-        int ch;
-        while ((ch = fr.read()) != -1) {
-            if (ch == ' ') {
-                fw.write(ch);
-                ch = fr.read();
-                fw.write(Character.toUpperCase(ch));
-            } else
-                fw.write(ch);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the file name");
+        String file = sc.nextLine();
+        File f = new File(file);
+        Scanner sc1 = new Scanner(f);
+        String s = "";
+        while (sc1.hasNextLine()) {
+            s += sc1.nextLine();
         }
-        fr.close();
+        String[] arr = s.split(" ");
+        String s1 = "";
+        for (int i = 0; i < arr.length; i++) {
+            s1 += arr[i].substring(0, 1).toUpperCase() + arr[i].substring(1) + " ";
+        }
+        System.out.println(s1);
+        FileWriter fw = new FileWriter("new.txt");
+        fw.write(s1);
         fw.close();
     }
 }
